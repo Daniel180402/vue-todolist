@@ -14,7 +14,8 @@ const app = new Vue({
                 text : "Buy salad",
                 done : false
             }
-        ]
+        ],
+        newListItem: ""
     },
     methods: {
         removeListItem(itemIndex){
@@ -23,6 +24,20 @@ const app = new Vue({
             }
             else{
                 console.log("This element doesn't exist");
+            }
+        },
+        addListItem(listItemContent){
+            if(listItemContent.trim() != ""){
+
+                const newTodoElement = {
+                    text : listItemContent.trim(),
+                    done : false
+                }
+                this.todoList.push(newTodoElement);
+                this.newListItem = "";
+            }
+            else{
+                console.warn("You have to write something to add to the list!");
             }
         }
     }
