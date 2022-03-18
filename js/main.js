@@ -2,7 +2,8 @@ const app = new Vue({
     el: "#app",
     data: {
         todoList: [ ],
-        newListItem: ""
+        newListItem: "",
+        listItem: "",
     },
     methods: {
         removeListItem(itemIndex){
@@ -32,6 +33,17 @@ const app = new Vue({
             if(event.key == "Enter")
             {
                 addListItem(listItemContent);
+            }
+        },
+        itemDone(classId, itemIndex){
+            if(this.todoList[itemIndex].done == false){
+                console.log("cia")
+                classId.classList.add("done");
+                this.todoList[itemIndex].done = true;
+            }
+            else{
+                classId.classList.remove("done");
+                this.todoList[itemIndex].done = false;
             }
         }
     }
