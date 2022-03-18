@@ -17,6 +17,13 @@ const app = new Vue({
         ]
     },
     methods: {
-
+        removeListItem(itemIndex){
+            if(this.todoList[itemIndex] != undefined){
+                this.todoList.splice(itemIndex, 1);
+            }
+            else{
+                console.log("This element doesn't exist");
+            }
+        }
     }
 });
