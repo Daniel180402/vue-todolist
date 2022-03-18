@@ -26,6 +26,13 @@ const app = new Vue({
             else{
                 console.warn("You have to write something to add to the list!");
             }
+        },
+        keymonitor: function(event) {
+            console.log(event.key);
+            if(event.key == "Enter")
+            {
+                addListItem(listItemContent);
+            }
         }
     }
 });
